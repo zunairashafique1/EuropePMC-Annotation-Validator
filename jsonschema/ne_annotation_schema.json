@@ -3,17 +3,17 @@
   "$id": "http://europepmc.org/annotations/ne_annotation_schema.json",
   "type": "object",
   "minProperties": 4,
-  "maxProperties": 4,
+  "maxProperties": 5,
   "properties": {
     "src": {
       "$id": "/properties/src",
       "type": "string",
       "title": "Src source document",
-      "description": "Values: AGR (Agricola), CBA (Chinese biological abstracts), MED (PubMed/MEDLINE), PAT (Patents), CTX (CiteXplore submission), CIT (CiteSeer), PMC (PubMedCentral), ETH (EThOS), HIR (UK NHS Evidence)",
+      "description": "Values: AGR (Agricola), CBA (Chinese biological abstracts), MED (PubMed/MEDLINE), PAT (Patents), CTX (CiteXplore submission), CIT (CiteSeer), PMC (PubMedCentral), ETH (EThOS), HIR (UK NHS Evidence), PPR (Preprints)",
       "examples": [
         "MED"
       ],
-      "pattern": "AGR|CBA|MED|PAT|CTX|CIT|PMC|ETH|HIR"
+      "pattern": "AGR|CBA|MED|PAT|CTX|CIT|PMC|ETH|HIR|PPR"
     },
     "id": {
       "$id": "/properties/id",
@@ -33,6 +33,21 @@
       "examples": [
         "europepmc"
       ]
+    },
+    "types": {
+      "$id": "/properties/types",
+      "type": "array",
+      "title": "Types related to this submission",
+      "minItems": 1,
+      "items": {
+      	"  $id": "/properties/types/item",
+	      "type": "string",
+	      "title": "Type of the annotations related to this submission",
+	      "description": "Type of the annotations related to this submission",
+	      "examples": [
+	        "chemical"
+	      ]
+      }
     },
     "anns": {
       "$id": "/properties/anns",
@@ -132,7 +147,6 @@
           }
         },
         "required": [
-          "position",
           "exact",
           "tags"
         ]
